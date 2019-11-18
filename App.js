@@ -7,6 +7,9 @@ export default function App() {
       <View style={styles.resultContainer}>
         <Text></Text>
       </View>
+      <View style={styles.inputContainer}>
+        <Text></Text>
+      </View>
     </View>
   );
 }
@@ -19,5 +22,9 @@ const styles = StyleSheet.create({
   resultContainer: {
     flex: 2,
     backgroundColor: 'grey'
+  },
+  inputContainer: {
+    flex: 8,
+    backgroundColor: 'blue'
   }
 });
