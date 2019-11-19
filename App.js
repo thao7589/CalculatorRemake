@@ -26,8 +26,49 @@ export default class App extends Component {
     return layout;
   }
 
-  onPress = num => {
-    console.log(num)
+  onPress = input => {
+    let { result, operator, firstValue, secondValue, nextValue } = this.state;
+    switch(input) {
+      case '0':
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+        this.setState({
+          result: result === '0' ? input : result + input
+        })
+        if (!nextValue) {
+          this.setState({
+            firstValue: firstValue.length == 0 ? input : firstValue + input
+          })
+        } else {
+          this.setState({
+            secondValue: secondValue.length == 0 ? input : secondValue + input
+          })
+        }
+        break;
+      case '/':  
+      case 'x':  
+      case '-':  
+      case '+':
+        this.setState({
+          nextValue: true,
+          operator: input,
+          result: (operator !== null ? result.substr(0, result.length - 1) : result) + input
+        })
+        break;
+      case '.':
+        console.log('dot');
+        break;
+      case '=':
+        console.log('equal');
+        break;  
+    }
   }
 
   render() {
