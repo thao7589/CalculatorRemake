@@ -66,8 +66,23 @@ export default class App extends Component {
         console.log('dot');
         break;
       case '=':
-        console.log('equal');
+        let finalResult = eval(firstValue + operator + secondValue);
+
+        this.setState({
+          result: finalResult,
+          firstValue: finalResult,
+          nextValue: false,
+          operator: null
+        })
         break;  
+      case 'CLEAR':
+        this.setState(this.initialState);
+        break;
+      case 'DEL':
+        this.setState({
+            result: result.length == 1 ? '0' : result.substr(0, result.length - 1)
+        });
+        break;    
     }
   }
 
@@ -87,6 +102,7 @@ export default class App extends Component {
 }
 
 const numbers = [
+  ['CLEAR', 'DEL'],
   ['7', '8', '9', '/'],
   ['4', '5', '6', 'x'],
   ['1', '2', '3', '+'],
