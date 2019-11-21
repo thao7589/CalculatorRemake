@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-
-
-export default class inputNumberButton extends React.Component {
+export default class InputNumberButton extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
-        const {input, handleOnPress} = this.props;
+        console.log(0); 
         return (
-            <TouchableOpacity style={styles.container} onPress={() => handleOnPress(input)}>
-                <Text style={styles.text}>{input}</Text>    
-            </TouchableOpacity>
+            <View style={ styles.container }>
+                <TouchableOpacity >
+                    <Text style={ styles.text }>{this.props.value}</Text>
+                </TouchableOpacity>
+            </View>
         )
     }
 }
@@ -21,13 +20,13 @@ export default class inputNumberButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        margin: 1,
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        backgroundColor: 'red',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 1
     },
     text: {
-        fontSize: 40,
+        fontSize: 25,
         color: '#fff',
         fontWeight: 'bold'
     }
