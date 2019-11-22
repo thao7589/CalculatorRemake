@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Context from './Context';
+import InputNumberButton from './inputNumberButton';
 
 export default class ContextProvider extends Component {
     constructor(props) {
@@ -13,8 +14,8 @@ export default class ContextProvider extends Component {
             nextNumber: false
         }
         this.state = this.initialState;
-        this.handleOnPress = this.handleOnPress.bind(this)
-        this.renderButton = this.renderButton.bind(this)
+        this.handleOnPress = this.handleOnPress.bind(this);
+        this.renderButton = this.renderButton.bind(this);
     }
 
     buttons = [
@@ -25,7 +26,8 @@ export default class ContextProvider extends Component {
         ['0', '.', '=', '+']
     ];
 
-    renderButton() { 
+    renderButton = () => { 
+        console.log(23424);
         let layout = this.buttons.map((rowList, rowIndex) => {
             let listValue = rowList.map((value, index) => {
               return <InputNumberButton value={ value }/>

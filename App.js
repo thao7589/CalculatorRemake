@@ -12,15 +12,16 @@ export default class App extends Component {
     return (
       <ContextProvider>
         <Context.Consumer> 
-          {(data) => (
-            <View style={ styles.container }>
-              <View style={ styles.resultContainer }>
-                  <Text style={ styles.resultText }>{data.state.result}</Text>
-              </View>
-              <View style={ styles.inputContainer }>
-                {data.render} 
-              </View>
-            </View>
+          {({state, press, render}) => (
+            render
+            // <View style={ styles.container }>
+            //   <View style={ styles.resultContainer }>
+            //       <Text style={ styles.resultText }>{state.result}</Text>
+            //   </View>
+            //   <View style={ styles.inputContainer }>
+            //     {render}
+            //   </View>  
+            // </View> 
           )}
         </Context.Consumer>
       </ContextProvider>

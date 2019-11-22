@@ -6,7 +6,7 @@ export default class InputNumberButton extends Component {
         super(props);
     }
     render() {
-        console.log(0); 
+        console.log(0)
         return (
             <View style={ styles.container }>
                 <TouchableOpacity >
